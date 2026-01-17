@@ -1,0 +1,38 @@
+n = int(input())
+lst = [input() for i in range(n)]
+
+lst = list(set(lst))
+lst.sort()
+lst.sort(key=len)
+
+for i in lst:
+    print(i)
+
+"""
+
+N = int(input())
+lst = []
+
+for _ in range(N):
+    w = input()
+    if w not in lst:
+        lst.append(w)
+
+N = len(lst)
+lst.sort()
+
+for d in range(0, N-1):
+    while len(lst[d]) > len(lst[d+1]):
+        for i in range(0, N-1):
+                    lst[i], lst[i+1] = lst[i+1], lst[i]
+            
+
+for i in range(0, N-1, 2):
+    while len(lst[i]) == len(lst[i+1]):
+        lst[i:i+1] = sorted(lst[i:i+1])    
+    
+
+for i in lst:
+    print(i)
+
+"""
