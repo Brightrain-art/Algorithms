@@ -25,6 +25,7 @@ c = fac_for(A-B)
 print(int(a/b/c))
 
 """
+"""
 
 A, B = map(int, input().split())
 
@@ -38,3 +39,5 @@ for d in range(1, A+1):
     nf = nf*d
 
 print(int(nf/kf/nkf))
+
+"""
