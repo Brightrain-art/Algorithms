@@ -1,0 +1,10 @@
+import sys
+
+input = sys.stdin.readline
+
+N = int(input())
+nums = [int(input()) for i in range(N)]
+
+nums.sort()
+
+sys.stdout.write("\n".join(map(str, nums)))
