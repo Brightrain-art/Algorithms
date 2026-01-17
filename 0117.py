@@ -1,17 +1,40 @@
+import math
+
 A, B = map(int, input().split())
 
-a, b = A, B
+fa = math.factorial(A)
+fb = math.factorial(B)
+fc = math.factorial(A-B)
 
-while b:
-    a, b = b, a%b
-
-g = a
-
-l = A * B / g
-
-print(g)
-print(l)
+print(int(fa/fb/fc))
 
 """
-0117 - revise 0116
+
+def fac_for(n):
+    fir = 1
+    for i in range(1, n+1):
+        fir *= i
+    return fir
+
+A, B = map(int, input().split())
+
+a = fac_for(A)
+b = fac_for(B)
+c = fac_for(A-B)
+
+print(int(a/b/c))
+
 """
+
+A, B = map(int, input().split())
+
+kf, nkf, nf = 1, 1, 1
+
+for d in range(1, B+1):
+    kf = kf*d
+for d in range(1, A-B+1):
+    nkf = nkf *d
+for d in range(1, A+1):
+    nf = nf*d
+
+print(int(nf/kf/nkf))
