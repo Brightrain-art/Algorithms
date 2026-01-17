@@ -26,3 +26,7 @@ for b in range(1, B+1):
             mul.append(aa)
 
 print(min(mul))
+
+"""
+0116 / 2609 - timeover
+"""
