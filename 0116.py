@@ -1,4 +1,21 @@
 A, B = map(int, input().split())
+
+a, b = A, B
+
+while b:
+    a, b = b, a%b
+
+c = a
+
+d = A * B // c
+
+print(c)
+print(d)
+
+"""
+origin:
+
+A, B = map(int, input().split())
 fir = []
 sco = []
 
@@ -28,5 +45,8 @@ for b in range(1, B+1):
 print(min(mul))
 
 """
-0116 / 2609 - timeover
+이 문제도 해결은 했으나 시간초과로 오답인 문제
+수학적인 개념이 모자라 못 푼 문제이다. '유클리드 호제법' 이라는 계산법을 이용해 쉽고 간단하게 해결할 수 있었고
+최대공배수 또한 쉽게 구해냈다.
 """
+
