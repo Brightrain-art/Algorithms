@@ -32,7 +32,7 @@ for i in range(1, num_case + 1):
 # 'try' 를 활용해 인풋이 끊길때까지 반복하는 코드
 # except EOFError
 
-case_num = 1
+case_num = 1 # 더미
 
 while True:
     try:
