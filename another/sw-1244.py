@@ -44,37 +44,59 @@ for i in range(tc):
         left, right = 0, len(cards_list) - 1
         c = cards_list
         t = int(time)
-        
+        goal_list = cards_list.copy()
+        goal_list.sort(reverse= True)
+
         # 변환 가능 횟수 제한
         while t > 0:
-            ma = cards_list.index(max(cards_list))
-            mi = cards_list.index(min(cards_list))
+            goal_left = cards_list.index(goal_list[left])
+            goal_right = cards_list.index(goal_list[right])
+            # mi = cards_list.index(min(cards_list))
             # 최댓값 인덱스 0
-            if cards_list[left] < max(c):
-                # print(cards_list)
-                # print(cards_list[left], cards_list[cards_list.index(max(cards_list))])
-                cards_list[left], cards_list[ma] = cards_list[ma], cards_list[left]
-                
-                left += 1
+            if cards_list[left] < cards_list[goal_left]:
+                cards_list[left], c[goal_left] = c[goal_left], cards_list[left]
                 t -= 1
-
+                left += 1
+                if left == right:
+                    break
                 if t == 0:
                     continue
+                # continue
 
             # 최솟값 인덱스 마지막
-            if c[right] > mi:
-                c[right], c[mi] = c[mi], c[right]
-                right -= 1
+            if c[right] > c[goal_right]:
+                c[right], c[goal_right] = c[goal_right], c[right]
                 t -= 1
-
+                right -= 1
+            
                 if t == 0:
                     continue
+                # continue
 
-        return cards_list
+            # 최댓값과 최솟값이 각자 자리에 갔을 때
+            if c[left] == c[goal_left]:
+                left += 1
+                if left == right:
+                    break
+                continue
+
+            if c[right] == c[goal_right]:
+                right -= 1
+                continue
+
+            if cards_list == goal_list:
+                break
+        
+        while t > 0:
+            cards_list[len(cards_list)- 1], cards_list[len(cards_list)- 2] = cards_list[len(cards_list)- 2], cards_list[len(cards_list)- 1]
+            t -= 1
+
+        return ''.join(map(str, cards_list))
 
     test_case += 1
 
-    print(f'#{test_case} {cards_arr()}')        
+    print(f'#{test_case} {cards_arr()}')
+
 
 # def reverse_string(s: list[str]):
 #     left, right = 0, len(s) - 1
