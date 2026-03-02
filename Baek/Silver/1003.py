@@ -33,3 +33,4 @@ fibonacci(int(input()))
 print(count_0.count(0), count_1.count(1))
 
 # dp 값에 리스트를 넣어서 
+
